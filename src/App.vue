@@ -1,28 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h4>Table 1</h4>
+    <Table01 />
+    <h4>Table 2</h4>
+    <Table02 />
+    <br />
+    <center><b style="color: red;">鼠标移入表格后点击右上角图标可过滤表格列</b></center>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Table01 from './components/SomeTable01.vue'
+import Table02 from './components/SomeTable02.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Table01,
+    Table02
   }
 }
 </script>
-
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

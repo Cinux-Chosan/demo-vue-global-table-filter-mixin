@@ -1,0 +1,13 @@
+.el-table[data-has-filter-mixin] {
+  min-height: 40px; // 最低高度，所有项都被过滤掉时，保证有一定高度
+
+  .table-filter-trigger-container{
+    display: block;
+  }
+
+  &:hover{
+    .table-filter-trigger{
+      opacity: .8;
+    }
+  }
+}
