@@ -62,7 +62,7 @@ Table.mixins?.push({
       filterBar.$mount(icon);
     }
   },
-  beforeUnmount() {
+  beforeDestroy() {
     this.mixinFilterBarInstance?.$destroy();
     this.mixinFilterBarInstance = this.mixinFilterBarData = null;
   },
@@ -77,7 +77,7 @@ Table.mixins?.push({
 
       try {
         const origin = this.store.states._columns;
-        this.store.states._columns = origin.filter((col) => isFilterWhiteType(col.type) || column?.includes(col.label),);
+        this.store.states._columns = origin.filter((col) => isFilterWhiteType(col.type) || column?.includes(resolveLabel(col)));
         this.store.updateColumns();
         // 更新列之后还原 el-table 内部的数据，列的增删都会同步到该数据上，因此需要还原，并在每次打开过滤组件时获取最新的列数据
         this.store.states._columns = origin;
