@@ -82,7 +82,7 @@ Table.mixins?.push({
         // 更新列之后还原 el-table 内部的数据，列的增删都会同步到该数据上，因此需要还原，并在每次打开过滤组件时获取最新的列数据
         this.store.states._columns = origin;
         await nextTick(); // 等待输完更新完成再 layout，如果同步 layout 可能出现样式问题（如正常的列和 fixed 的列高度出现不一致等情况）
-        this.doLayout();
+        this.store.scheduleLayout(); // 内部实现比 this.doLayout() 多 50ms 延时，this.doLayout() 可能会出现样式同步问题
       } catch (error) {
         console.error(`表格过滤异常：`, error.message || error)
       } finally {
